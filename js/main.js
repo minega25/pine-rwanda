@@ -345,8 +345,13 @@ jQuery(document).ready(function ($) {
   contactForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     const formData = new FormData(contactForm);
-    $.post('http://localhost:3000/contact', {}, function (response) {
-      console.log(response);
+    formData.append('to', 'patrick.minegas@gmail.com');
+    formData.append('from', 'info@pinerwanda.com');
+    await fetch('https://sendgrid-mail-sender-nodejs.herokuapp.com/contact', {
+      method: 'post',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      body: formData,
     });
   });
 });
