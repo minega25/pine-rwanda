@@ -342,16 +342,27 @@ jQuery(document).ready(function ($) {
   });
   const contactForm = document.getElementById('contactForm');
 
-  contactForm.addEventListener('submit', async function (e) {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
-    formData.append('to', 'patrick.minegas@gmail.com');
-    formData.append('from', 'info@pinerwanda.com');
-    await fetch('https://sendgrid-mail-sender-nodejs.herokuapp.com/contact', {
-      method: 'post',
-      mode: 'no-cors',
-      cache: 'no-cache',
-      body: formData,
-    });
-  });
+  // contactForm.addEventListener('submit', async function (e) {
+  //   e.preventDefault();
+  //   const formData = new FormData(contactForm);
+  //   formData.append('to', 'info@pinerwanda.com');
+  //   formData.append('from', 'info@pinerwanda.com');
+  //   const results = await fetch('http://localhost:3000/contact', {
+  //     method: 'post',
+  //     mode: 'cors',
+  //     body: formData,
+  //   })
+  //     .then(function (res) {
+  //       return res.json();
+  //     })
+  //     .then(function (data) {
+  //       return data;
+  //     });
+  //   if (results.message === 'Message delivered') {
+  //     var sendBtn = document.querySelector('.sendMessage');
+  //     sendBtn.style.backgroundColor = 'green';
+  //     sendBtn.value = `Message Sent`;
+  //     contactForm.reset();
+  //   }
+  // });
 });
